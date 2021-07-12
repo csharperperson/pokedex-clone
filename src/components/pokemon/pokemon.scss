@@ -93,3 +93,8 @@ $color-water: #6890f0;
         @include type($color-water);
     }
 }
+
+.card-content:hover {
+    background-color: black;
+    cursor: pointer;
+}

@@ -10,15 +10,15 @@ class Pokedex extends React.Component {
     };
 
     componentDidMount() {
-        this.fetchKantoPokemon();
+        this.fetchPokemon();
     }
 
-    fetchKantoPokemon() {
+    fetchPokemon() {
         axios.get("https://pokeapi.co/api/v2/pokemon?limit=20").then((res) => {
             const pokemon = res.data.results;
             let pokeArray = [];
             let requests = pokemon.map((item) => {
-                return this.fetchKantoPokemonDetail(item.url);
+                return this.fetchPokemonDetail(item.url);
             });
             Promise.all(requests).then((data) => {
                 data.forEach((item) => {
@@ -29,7 +29,7 @@ class Pokedex extends React.Component {
         });
     }
 
-    fetchKantoPokemonDetail(pokeUrl) {
+    fetchPokemonDetail(pokeUrl) {
         return axios.get(pokeUrl);
     }
 

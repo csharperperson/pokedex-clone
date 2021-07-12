@@ -3,6 +3,12 @@ import { Palette } from "react-palette";
 import "./pokemon.scss";
 
 class Pokemon extends React.Component {
+    clickPokemon(e) {
+        var test = e.currentTarget;
+        var testElement = test.querySelector('.sub-content');
+        testElement.classList.toggle('is-hidden');
+    }
+    
     render() {
         return (
             <Palette src={this.props.pokemon.sprites.front_default}>
@@ -10,7 +16,7 @@ class Pokemon extends React.Component {
                     <div
                         className="card is-rounded mb-3"
                         style={{ background: data.vibrant + "CC" }}>
-                        <div className="card-content">
+                        <div className="card-content" onClick={this.clickPokemon}>
                             <div className="media">
                                 <div className="media-left media-left-rounded">
                                     <figure className="image is-64x64">
@@ -68,6 +74,8 @@ class Pokemon extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                    <div className="sub-content is-hidden">twat</div>
+                        
                         </div>
                     </div>
                 )}
